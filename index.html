@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Don Samaco Park – Prueba de despliegue</title>
+
+  <!-- Estilos mínimos en línea para no depender de otros archivos -->
+  <style>
+    :root {
+      --bg1: #0f2027;
+      --bg2: #203a43;
+      --bg3: #2c5364;
+      --neon: #00e0ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px var(--neon), 0 0 20px var(--neon);
+    }
+    p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    #clock {
+      font-family: monospace;
+      font-size: 2rem;
+      border: 2px solid var(--neon);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-shadow: 0 0 6px var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+    }
+    footer {
+      position: absolute;
+      bottom: 12px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      width: 100%;
+    }
+    a { color: var(--neon); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>¡Despliegue exitoso! 🚀</h1>
+  <p>Si ves esta página en <strong>donsamaco.online</strong>, tu hosting en GitHub Pages funciona.</p>
+
+  <div id="clock">--:--:--</div>
+
+  <footer>
+    © 2025 Don Samaco Park · Sitio de prueba – <a href="https://github.com/AndrickUMG" target="_blank">GitHub</a>
+  </footer>
+
+  <!-- Reloj en vivo -->
+  <script>
+    const clock = document.getElementById("clock");
+    function updateClock() {
+      const now = new Date();
+      const hh   = String(now.getHours()).padStart(2, "0");
+      const mm   = String(now.getMinutes()).padStart(2, "0");
+      const ss   = String(now.getSeconds()).padStart(2, "0");
+      clock.textContent = `${hh}:${mm}:${ss}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
