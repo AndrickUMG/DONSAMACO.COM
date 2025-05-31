@@ -3,124 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parque de Diversiones Don Samaco</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/clima.css" />
+  <title>Don Samaco Park – Prueba de despliegue</title>
+
+  <!-- Estilos mínimos en línea para no depender de otros archivos -->
+  <style>
+    :root {
+      --bg1: #0f2027;
+      --bg2: #203a43;
+      --bg3: #2c5364;
+      --neon: #00e0ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px var(--neon), 0 0 20px var(--neon);
+    }
+    p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    #clock {
+      font-family: monospace;
+      font-size: 2rem;
+      border: 2px solid var(--neon);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-shadow: 0 0 6px var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+    }
+    footer {
+      position: absolute;
+      bottom: 12px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      width: 100%;
+    }
+    a { color: var(--neon); text-decoration: none; }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://via.placeholder.com/80x40?text=Logo" alt="Logo del Parque" />
-      <h1>Don Samaco Park</h1>
-    </div>
-    <nav>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
-      <ul id="nav-list">
-        <li><a href="#atracciones">Atracciones</a></li>
-        <li><a href="#eventos">Eventos</a></li>
-        <li><a href="#hospedaje">Hospedaje</a></li>
-        <li><a href="#tienda">Tienda</a></li>
-        <li><a href="#tickets">Tickets</a></li>
-        <li><a href="#clima">Clima</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1>¡Despliegue exitoso! 🚀</h1>
+  <p>Si ves esta página en <strong>donsamaco.online</strong>, tu hosting en GitHub Pages funciona.</p>
 
-  <main>
-    <section class="hero-section">
-      <div class="container">
-        <h1>Bienvenido a Don Samaco Park</h1>
-        <p>El mejor lugar para la diversión y la aventura familiar. ¡Descubre nuestras increíbles atracciones, eventos, opciones de hospedaje y tiendas!</p>
-        <a href="#atracciones" class="cta-button">Descubre la Aventura</a>
-      </div>
-    </section>
-
-    <section id="atracciones" class="atracciones-section">
-      <h2>Nuestras Atracciones</h2>
-      <div class="atracciones-grid">
-        <!-- Tarjetas de atracciones aquí -->
-      </div>
-    </section>
-
-    <section id="eventos" class="eventos-section">
-      <h2>Próximos Eventos</h2>
-      <div id="contenedor-eventos" class="eventos-grid"></div>
-    </section>
-
-    <section id="hospedaje" class="hospedaje-section">
-      <h2>Opciones de Hospedaje</h2>
-      <div class="hospedaje-grid">
-        <!-- Tarjetas de hospedaje aquí -->
-      </div>
-    </section>
-
-    <section id="tienda" class="tienda-section">
-      <h2>Tienda de Recuerdos</h2>
-      <p>Visita nuestras tiendas para encontrar el recuerdo perfecto.</p>
-      <div class="tienda-grid">
-        <!-- Tarjetas de tienda aquí -->
-      </div>
-    </section>
-
-    <section id="clima" class="clima-section">
-      <h2>Clima en Don Samaco Park</h2>
-      <div class="card">
-        <div class="landscape-section">
-          <div class="sky"></div>
-          <div class="sun"></div>
-          <div class="reflection"></div>
-          <div class="reflection"></div>
-          <div class="reflection"></div>
-          <div class="reflection"></div>
-          <div class="reflection"></div>
-          <div class="hill-1"></div>
-          <div class="shadow-hill-1"></div>
-          <div class="hill-2"></div>
-          <div class="shadow-hill-2"></div>
-          <div class="hill-3"></div>
-          <div class="hill-4"></div>
-          <div class="tree-1"></div>
-          <div class="tree-2"></div>
-          <div class="tree-3"></div>
-          <div class="ocean"></div>
-          <div class="filter"></div>
-
-          <div class="weather-info">
-            <div class="left-side temperature" id="temperatura">--°C</div>
-            <div class="right-side">
-              <p id="descripcion">Cargando...</p>
-              <div class="location">
-                <span>Guatemala</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="content-section">
-          <div class="forecast">
-            <div><span>Mañana</span><span id="dia1">--°C</span></div>
-            <div class="separator"></div>
-            <div><span>Pasado mañana</span><span id="dia2">--°C</span></div>
-            <div class="separator"></div>
-            <div><span>Siguiente</span><span id="dia3">--°C</span></div>
-          </div>
-        </div>
-      </div>
-      <div id="recomendacion" class="clima-recomendacion"></div>
-    </section>
-
-    <section id="tickets" class="tickets-section">
-      <h2>Tickets</h2>
-      <p>Adquiere tus tickets y pases de temporada para disfrutar de todas las emociones que Don Samaco Park tiene para ti.</p>
-    </section>
-  </main>
+  <div id="clock">--:--:--</div>
 
   <footer>
-    <p>© 2025 Don Samaco Park. Todos los derechos reservados.</p>
+    © 2025 Don Samaco Park · Sitio de prueba – <a href="https://github.com/AndrickUMG" target="_blank">GitHub</a>
   </footer>
 
-  <script src="js/clima.js"></script>
-  <script src="js/eventos.js"></script>
+  <!-- Reloj en vivo -->
+  <script>
+    const clock = document.getElementById("clock");
+    function updateClock() {
+      const now = new Date();
+      const hh   = String(now.getHours()).padStart(2, "0");
+      const mm   = String(now.getMinutes()).padStart(2, "0");
+      const ss   = String(now.getSeconds()).padStart(2, "0");
+      clock.textContent = `${hh}:${mm}:${ss}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 </body>
 </html>
