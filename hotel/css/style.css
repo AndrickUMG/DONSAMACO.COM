@@ -1,0 +1,349 @@
+/* ==================================================================== */
+/*  Don Samaco Park · Hotel el Tushe – Hoja de estilos global (v3)       */
+/* ==================================================================== */
+
+/* ---------- 1 · PALETA Y VARIABLES GLOBALES ------------------------- */
+:root{
+  --blue-dark:#0b3f75;   /* header / footer */
+  --blue-med:#115a9c;    /* botones primarios, cards */
+  --blue-light:#1d71c1;  /* hovers, énfasis */
+  --yellow:#ffca28;      /* acento */
+  --white:#ffffff;
+  --text:#212121;
+  --shadow:0 8px 24px rgba(0,0,0,.15);
+  --radius:14px;
+  --font:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+
+/* ---------- 2 · RESETEO BÁSICO ------------------------------------- */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--font);
+  color:var(--text);
+  background:#f3f6fa;
+  min-height:100vh;
+}
+img{max-width:100%;display:block}
+
+/* ---------- 3 · NAVBAR -------------------------------------------- */
+.navbar{
+  width:100%;
+  background:var(--blue-dark);
+  color:var(--white);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 30px;
+  position:sticky;top:0;z-index:999;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+.navbar__logo{font-size:1.4rem;font-weight:700;letter-spacing:1px}
+.navbar__menu{display:flex;flex-wrap:wrap;gap:24px}
+.navbar__menu a{
+  color:var(--white);
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+  padding-bottom:4px;
+  transition:color .3s;
+}
+.navbar__menu a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--yellow);transition:width .3s;
+}
+.navbar__menu a:hover,
+.navbar__menu .is-active{color:var(--yellow)}
+.navbar__menu a:hover::after,
+.navbar__menu .is-active::after{width:100%}
+
+/* ---------- 4 · ESTRUCTURA GENERAL -------------------------------- */
+.wrapper{
+  max-width:1280px;
+  margin:100px auto 60px;
+  padding:0 24px;
+}
+h1,h2,h3{color:var(--blue-dark)}
+
+/* ---------- 5 · BOTONES ------------------------------------------- */
+.primary-btn,
+.btn-primary,
+.tm-resbutton p,
+.boton-comprar{
+  background:var(--blue-med);
+  color:var(--white);
+  border:none;
+  border-radius:var(--radius);
+  cursor:pointer;
+  font-weight:600;
+  padding:12px 26px;
+  transition:filter .3s;
+}
+.primary-btn:hover,
+.btn-primary:hover,
+.tm-resbutton p:hover,
+.boton-comprar:hover{filter:brightness(.9)}
+.btn:disabled,
+.btn:disabled:hover{background:#6a6a6a}
+
+/* ---------- 6 · TARJETAS / CARDS ---------------------------------- */
+.cards{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;margin-top:40px}
+.card{
+  background:var(--blue-light);
+  color:var(--white);
+  border-radius:var(--radius);
+  width:280px;
+  padding:26px 22px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+  text-align:center;
+}
+.card:hover{transform:translateY(-8px);filter:brightness(1.07)}
+.card h3{margin-bottom:8px}
+
+/* ---------- 7 · HERO ---------------------------------------------- */
+.hero{position:relative;text-align:center;color:var(--white)}
+.hero img{width:100%;height:480px;object-fit:cover;filter:brightness(.55)}
+.hero__text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.hero__text h2{font-size:3rem;margin-bottom:1rem}
+.hero__text p{font-size:1.2rem}
+
+/* ---------- 8 · TABLAS / HISTORIAL ------------------------------- */
+.table,
+.historial-ventas{width:100%;border-collapse:collapse;margin-top:25px}
+.table th, .table td,
+.historial-ventas th, .historial-ventas td{
+  border:1px solid #ddd;
+  padding:12px 10px;
+  text-align:center;
+}
+.table th,
+.historial-ventas th{background:var(--blue-med);color:#fff}
+
+/* ---------- 9 · FOOTER ------------------------------------------- */
+footer{
+  background:var(--blue-dark);
+  color:var(--white);
+  text-align:center;
+  padding:20px;
+  margin-top:60px;
+}
+
+/* =================================================================== */
+/*   10 · OVERRIDES PARA PLANTILLA ORIGINAL (clases tm-*)              */
+/* =================================================================== */
+.tm-header, .tm-footer{background:var(--blue-dark)}
+.tm-nav{border:2px solid var(--blue-med);background:var(--blue-dark)}
+.tm-nav div ul li a{color:var(--white)}
+.tm-nav div ul li a:hover{color:var(--yellow)}
+.bold{color:var(--yellow)}
+.simple{color:var(--white)}
+.tm-rooms, .tm-service, .tm-review, .tm-res,
+.tm-room1, .tm-exp1, .tm-exp2, .tm-booking{background:var(--blue-med)}
+.tm-rooms a p:hover,
+.tm-resbutton p:hover,
+.tm-service .b,
+.tm-us .bold,
+.tm-address .bold,
+.tm-trans div .bold,
+.tm-nav div ul li a:hover{color:var(--yellow)}
+.tm-resbutton p,
+.tm-resbutton p:hover{border-color:var(--yellow)}
+label{color:var(--white)}
+input,select,textarea{border:1px solid var(--blue-light);color:var(--blue-dark)}
+input[type=submit]{background:var(--blue-light);border-color:var(--blue-light)}
+input[type=submit]:hover{background:var(--yellow);color:var(--text);border-color:var(--yellow)}
+.counter-plus,
+.counter-minus{background:var(--blue-med)}
+.counter-plus:hover,
+.counter-minus:hover{background:var(--blue-light)}
+.slick-prev:before,
+.slick-next:before,
+.slick-dots li button:before{color:var(--yellow)}
+.slick-dots li.slick-active button:before{color:var(--white)}
+.pickmeup{background:var(--blue-dark)}
+.pickmeup .pmu-instance .pmu-button{color:var(--white)}
+.pickmeup .pmu-instance .pmu-today{background:var(--yellow);color:var(--blue-dark)}
+.pickmeup .pmu-instance .pmu-selected{background:var(--blue-light)}
+.pickmeup .pmu-instance nav{color:var(--yellow)}
+
+/* ---------- 11 · MEDIA QUERIES ------------------------------------ */
+@media(max-width:820px){
+  .navbar__menu{gap:14px}
+  .hero img{height:360px}
+  .card{width:92%}
+  .tm-roomsection{flex-direction:column}
+  .tm-room1{width:100%}
+  .tm-form1,.tm-form2{width:100%;max-width:100%}
+  div.vertical-line{display:none}
+  .tm-service{margin:4% auto;width:70%;max-width:400px}
+}
+
+/* =================================================================== */
+/*  12 · FORMULARIO DE RESERVA (bb.html)                               */
+/* =================================================================== */
+.form-title{
+  text-align:center;
+  margin-bottom:28px;
+  color:var(--blue-dark);
+}
+
+.form-box{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:32px;
+  box-shadow:var(--shadow);
+  max-width:720px;
+  margin:auto;
+}
+
+.form-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  margin-bottom:20px;
+}
+
+.field{
+  flex:1 1 260px;
+  display:flex;
+  flex-direction:column;
+}
+
+.field label{
+  font-weight:600;
+  margin-bottom:6px;
+  color:var(--blue-med);
+}
+
+.field input,
+.field select{
+  padding:12px 14px;
+  border:1px solid #c4c4c4;
+  border-radius:8px;
+  font-size:1rem;
+}
+
+.dropdown-toggle{
+  width:100%;
+  background:var(--blue-light);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:11px 0;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.dropdown-content{
+  display:none;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin-top:10px;
+  padding:14px 18px;
+}
+
+.dropdown-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+  font-size:.95rem;
+}
+
+.dropdown-row button{
+  width:32px;height:32px;border:none;
+  background:var(--blue-med);
+  color:#fff;
+  font-weight:700;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.dropdown-content.show{display:block}
+
+/*  MEDIA QUERY – Mobile para formulario  */
+@media(max-width:620px){
+  .form-row{gap:12px}
+  .field{flex:1 1 100%}
+}
+
+/* =================================================================== */
+/*  CONTACTO                                                           */
+/* =================================================================== */
+.contact-wrapper{
+  display:flex;
+  gap:48px;
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+.contact-form{
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:32px 36px;
+  max-width:460px;
+  flex:1 1 320px;
+}
+
+.contact-form h2{
+  margin-bottom:22px;
+  color:var(--blue-dark);
+}
+
+.contact-form label{
+  font-weight:600;
+  margin:14px 0 6px;
+  color:var(--blue-med);
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #c4c4c4;
+  border-radius:8px;
+  font-size:1rem;
+}
+
+.contact-form textarea{resize:vertical}
+
+.alert{
+  display:none;
+  margin-top:14px;
+  font-size:.9rem;
+  color:var(--blue-med);
+}
+
+.social-links{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+}
+
+.social-links a{
+  display:block;
+  width:64px;height:64px;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform .3s;
+}
+
+.social-links a:hover{transform:translateY(-4px)}
+
+.social-links img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+
+/*  Responsive  */
+@media(max-width:620px){
+  .contact-wrapper{gap:28px}
+  .social-links{flex-direction:row}
+}
+
